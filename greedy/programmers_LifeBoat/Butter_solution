@@ -1,0 +1,18 @@
+def solution(people, limit):
+    answer = 0
+    people.sort(reverse=True)
+    minIdx = len(people)-1
+    maxIdx = 0
+
+    while maxIdx < minIdx:
+        if people[maxIdx] + people[minIdx] > limit:
+            maxIdx += 1
+        else:
+            minIdx -= 1
+            maxIdx += 1
+        answer += 1
+
+    if(maxIdx==minIdx):
+        answer += 1
+
+    return answer
